@@ -15,3 +15,53 @@
 2025-09-26 23:11:45,876 - ERROR - No such comm target registered: jupyter.widget.control
 2025-09-26 23:11:45,878 - WARNING - No such comm: 9a219850-c5a0-4c14-840b-a44dd9103c93
 2025-09-26 23:11:45,878 - DEBUG - Current comms: []
+2025-09-27 20:49:20,301 - INFO - Preprocessing script started
+2025-09-27 20:49:20,302 - INFO - Starting vendor summary extraction from DB
+2025-09-27 20:50:12,176 - INFO - Vendor summary extraction completed. Rows fetched: 10692
+2025-09-27 20:50:12,176 - INFO - Time taken for query execution: 51.87 seconds
+2025-09-27 20:50:12,176 - INFO - Starting data cleaning
+2025-09-27 20:50:12,189 - WARNING - Found 178 inf/-inf values. Replacing with 0
+2025-09-27 20:50:12,194 - INFO - Data cleaning completed successfully
+2025-09-27 20:50:12,195 - INFO - Starting ingestion into database
+2025-09-27 20:50:16,172 - INFO - Inserted 10692 rows into 'vendor_sales_summary'
+2025-09-27 20:50:16,172 - INFO - Data ingestion completed successfully
+2025-09-27 20:52:59,503 - INFO - Preprocessing script started
+2025-09-27 20:52:59,503 - INFO - Starting vendor summary extraction from DB
+2025-09-27 20:53:50,604 - INFO - Vendor summary extraction completed. Rows fetched: 10692
+2025-09-27 20:53:50,604 - INFO - Time taken for query execution: 51.10 seconds
+2025-09-27 20:53:50,604 - INFO - Starting data cleaning
+2025-09-27 20:53:50,619 - WARNING - Found 178 inf/-inf values. Replacing with 0
+2025-09-27 20:53:50,624 - INFO - Data cleaning completed successfully
+2025-09-27 20:53:50,624 - INFO - Starting ingestion into database
+2025-09-27 20:53:54,909 - INFO - Inserted 10692 rows into 'vendor_sales_summary'
+2025-09-27 20:53:54,909 - INFO - Data ingestion completed successfully
+2025-09-27 21:00:09,149 - INFO - Preprocessing script started
+2025-09-27 21:00:09,153 - INFO - Starting vendor summary extraction from DB
+2025-09-27 21:01:01,566 - INFO - Vendor summary extraction completed. Rows fetched: 10692
+2025-09-27 21:01:01,566 - INFO - Time taken for query execution: 52.41 seconds
+2025-09-27 21:01:01,566 - INFO - Starting data cleaning
+2025-09-27 21:01:01,586 - WARNING - Found 178 inf/-inf values. Replacing with 0
+2025-09-27 21:01:01,594 - INFO - Data cleaning completed successfully
+2025-09-27 21:01:01,599 - INFO - Starting ingestion into database
+2025-09-27 21:01:06,333 - INFO - Inserted 10692 rows into 'vendor_sales_summary'
+2025-09-27 21:01:06,333 - INFO - Data ingestion completed successfully
+2025-09-27 21:04:10,607 - INFO - Preprocessing script started
+2025-09-27 21:04:10,607 - INFO - Starting vendor summary extraction from DB
+2025-09-27 21:05:05,695 - INFO - Vendor summary extraction completed. Rows fetched: 10692
+2025-09-27 21:05:05,695 - INFO - Time taken for query execution: 55.09 seconds
+2025-09-27 21:05:05,695 - INFO - Starting data cleaning
+2025-09-27 21:05:05,711 - WARNING - Found 178 inf/-inf values. Replacing with 0
+2025-09-27 21:05:05,719 - INFO - Data cleaning completed successfully
+2025-09-27 21:05:05,720 - INFO - Starting ingestion into database
+2025-09-27 21:05:10,400 - INFO - Inserted 10692 rows into 'vendor_sales_summary'
+2025-09-27 21:05:10,400 - INFO - Data ingestion completed successfully
+2025-09-27 21:08:12,770 - INFO - Preprocessing script started
+2025-09-27 21:08:12,770 - INFO - Starting vendor summary extraction from DB
+2025-09-27 21:09:10,316 - INFO - Vendor summary extraction completed. Rows fetched: 10692
+2025-09-27 21:09:10,316 - INFO - Time taken for query execution: 57.55 seconds
+2025-09-27 21:09:10,316 - INFO - Starting data cleaning
+2025-09-27 21:09:10,333 - WARNING - Found 178 inf/-inf values. Replacing with 0
+2025-09-27 21:09:10,339 - INFO - Data cleaning completed successfully
+2025-09-27 21:09:10,341 - INFO - Starting ingestion into database
+2025-09-27 21:09:14,996 - INFO - Inserted 10692 rows into 'vendor_sales_summary'
+2025-09-27 21:09:14,996 - INFO - Data ingestion completed successfully

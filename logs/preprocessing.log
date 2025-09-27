@@ -1,0 +1,10 @@
+
+2025-09-27 21:08:12,770 - INFO - Preprocessing script started
+2025-09-27 21:08:12,770 - INFO - Starting vendor summary extraction from DB
+2025-09-27 21:09:10,316 - INFO - Vendor summary extraction completed. Rows fetched: 10692
+2025-09-27 21:09:10,316 - INFO - Time taken for query execution: 57.55 seconds
+2025-09-27 21:09:10,316 - INFO - Starting data cleaning
+2025-09-27 21:09:10,333 - WARNING - Found 178 inf/-inf values. Replacing with 0
+2025-09-27 21:09:10,339 - INFO - Data cleaning completed successfully
+2025-09-27 21:09:10,341 - INFO - Starting ingestion into database
+2025-09-27 21:09:14,996 - INFO - Data ingestion completed successfully

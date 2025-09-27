@@ -4,31 +4,32 @@ from sqlalchemy import create_engine
 import time
 import logging
 
-logging.basicConfig(
-    filename= 'logs/ingestion_db.log',
-    level = logging.DEBUG,
-    format = '%(asctime)s - %(levelname)s - %(message)s',
-    filemode ='a'
-)
+# Ensure logs folder exists
+os.makedirs('logs', exist_ok=True)
 
-username = "root"          
-password = "root" 
-host = "localhost"         
-port = "3306"              
-database = "inventory"     
+# Dedicated logger for ingestion
+logger = logging.getLogger("ingestion")
+logger.setLevel(logging.DEBUG)
+if logger.hasHandlers():
+    logger.handlers.clear()
+fh = logging.FileHandler("logs/ingestion_db.log")
+fh.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+fh.setFormatter(formatter)
+logger.addHandler(fh)
+
+# MySQL connection
+username = "root"
+password = "root"
+host = "localhost"
+port = "3306"
+database = "inventory"
 
 engine = create_engine(f"mysql+pymysql://{username}:{password}@{host}:{port}/{database}")
 
-def ingest_data(df, tbl_nm, engine, chunksize=5000, if_exists="append"):
+def ingest_data(df, tbl_nm, engine, chunksize=5000, if_exists="replace"):
     """
     Insert DataFrame into MySQL safely and quickly.
-
-    Parameters:
-        df (pd.DataFrame): Data to insert
-        tbl_nm (str): Target table name
-        engine: SQLAlchemy engine
-        chunksize (int): Number of rows per batch insert (default 5000)
-        if_exists (str): 'append' (default) | 'replace' | 'fail'
     """
     try:
         df.to_sql(
@@ -36,24 +37,25 @@ def ingest_data(df, tbl_nm, engine, chunksize=5000, if_exists="append"):
             con=engine,
             if_exists=if_exists,
             index=False,
-            chunksize=chunksize,   # prevents memory errors
-            method="multi"         # multi-row INSERTs (faster)
+            chunksize=chunksize,
+            method="multi"
         )
-        logging.info(f"Inserted {len(df)} rows into '{tbl_nm}'")
+        logger.info(f"Inserted {len(df)} rows into '{tbl_nm}'")
     except Exception as e:
-        logging.info(f"Error inserting into {tbl_nm}: {e}")
+        logger.error(f"Error inserting into {tbl_nm}: {e}")
+        raise
 
 def load_raw_data():
     start = time.time()
     for file in os.listdir('data'):
         if file.endswith('.csv'):
-            df = pd.read_csv('data/'+file)
-            logging.info(f'Ingesting {file} in db.')
-            ingest_data(df,file[:-4],engine)
+            df = pd.read_csv(os.path.join('data', file))
+            logger.info(f'Ingesting {file} into database.')
+            ingest_data(df, file[:-4], engine)
     end = time.time()
-    total_time = (end - start)/ 60
-    logging.info('Ingestion complete.')
-    logging.info(f'Total time taken for ingestion {total_time} in minutes.')
+    total_time = (end - start)/60
+    logger.info('Ingestion complete.')
+    logger.info(f'Total time taken for ingestion: {total_time:.2f} minutes.')
 
 if __name__ == '__main__':
     load_raw_data()
